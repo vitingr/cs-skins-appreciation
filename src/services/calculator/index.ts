@@ -34,7 +34,7 @@ export class Calculator {
       "usp-s",
       "glock-18",
       "desert eagle",
-      "ak47",
+      "ak-47",
       "m4a4",
       "m4a1-s",
       "awp",

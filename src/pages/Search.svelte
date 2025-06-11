@@ -56,7 +56,7 @@
 
 <section class="py-12 lg:py-16 px-4 w-full">
   <header
-    class="max-w-2xl lg:max-w-6xl w-full mx-auto flex flex-col items-center gap-12 lg:gap-16"
+    class="max-w-2xl lg:max-w-7xl w-full mx-auto flex flex-col items-center gap-12 lg:gap-16"
   >
     <article class="flex gap-2 items-center flex-col">
       <h1 class="text-4xl text-center font-semibold">Busca de Inventário</h1>
@@ -74,7 +74,7 @@
         on:keypress={(e) => e.key === "Enter" && fetchInvetoryItems()}
       />
       <a
-        class="text-sm text-indigo-500 hover:brightness-105 -mt-3 transition-all duration-300"
+        class="text-sm font-medium text-indigo-500 hover:brightness-105 -mt-3 transition-all duration-300"
         target="_blank"
         href="https://www.steamidfinder.com/"
         >Não sabe seu ID da steam? clique aqui!</a
@@ -102,7 +102,7 @@
         <p class="text-center mt-8">Carregando inventário...</p>
       {:else if inventoryItems && inventoryItems.length > 0}
         <section
-          class="grid grid-cols-1 h-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch gap-6 mt-12 max-w-6xl mx-auto px-4"
+          class="grid grid-cols-1 h-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch gap-6 mt-12 max-w-7xl mx-auto px-4"
         >
           {#each inventoryItems as item, index (index)}
             <SkinCard skin={item} />
