@@ -1,17 +1,20 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import { NAVBAR_LINKS } from "./data";
 
-<nav class="navbar-container">
+</script>
+
+<nav class="navbar-container shadow">
   <div class="navbar-items">
-    <!-- Logo link para home -->
     <a class="logo" href="/">LOGO</a>
 
     <ul class="navbar-links">
-      <li class="navbar-item"><a href="/product">Product</a></li>
-      <li class="navbar-item"><a href="/resources">Resources</a></li>
-      <li class="navbar-item"><a href="/pricing">Pricing</a></li>
-      <li class="navbar-item"><a href="/customers">Customers</a></li>
-      <li class="navbar-item"><a href="/blog">Blog</a></li>
-      <li class="navbar-item"><a href="/contact">Contact</a></li>
+      {#each NAVBAR_LINKS as link}
+        <li
+          class="cursor-pointer w-full text-sm text-neutral-600 px-4 py-3 rounded-sm items-center justify-center flex"
+        >
+          <a href={link.href}>{link.name}</a>
+        </li>
+      {/each}
     </ul>
 
     <div class="actions">
@@ -22,14 +25,14 @@
 
 <style>
   .navbar-container {
-    border-bottom: 1px solid #313233e5;
+    box-shadow: 1px;
     position: fixed;
     inset: 0;
     z-index: 99999;
     display: flex;
     max-height: 44px;
     width: auto;
-    background-color: hsla(0,0%,4%,.8);
+    background-color: #fff;
     background-clip: padding-box;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -52,7 +55,7 @@
   .logo {
     font-weight: 600;
     text-decoration: none;
-    color: white;
+    color: #404040;
     width: 100%;
   }
 
@@ -79,8 +82,8 @@
     align-items: center;
     display: flex;
     border-radius: 8px;
-    color: #08090a;
-    background: #e6e6e6;
+    color: #fff;
+    background: #6366f1;
     cursor: pointer;
     text-decoration: none;
     transition-duration: 0.2s;
@@ -89,38 +92,6 @@
 
   .test-button:hover {
     filter: brightness(1.05);
-  }
-
-  .navbar-item {
-    cursor: pointer;
-    width: 100%;
-    font-size: 14px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 8px 12px;
-    color: #a5a7ac;
-    border-radius: 4px;
-    font-weight: 410;
-    transition-duration: 0.2s;
-    transition-property: all;
-    text-decoration: none;
-  }
-
-  .navbar-item:hover {
-    background: hsla(0,0%,100%,.08);
-    color: #f7f8f8;
-  }
-
-  .navbar-item:hover * {
-    color: #f7f8f8;
-  }
-
-  .navbar-item a {
-    transition-duration: 0.2s;
-    transition-property: all;
-    color: #a5a7ac;
-    text-decoration: none;
   }
 
   /* @media (min-width: 1024px) {

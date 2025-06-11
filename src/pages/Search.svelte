@@ -1,4 +1,7 @@
 <script>
+  // @ts-nocheck
+
+  import SkinCard from "../components/SkinCard/SkinCard.svelte";
   import { RARITY_ADAPTER } from "../constants/calculator/rarity";
 
   import { api } from "../constants/instances/api";
@@ -11,23 +14,25 @@
   const fetchInvetoryItems = async () => {
     if (!userId) return;
     isLoading = true;
+    inventoryItems = null;
 
     try {
       const response = await api.getUserInventoryItems({ userId });
 
+      if (!Array.isArray(response)) {
+        throw new Error("Resposta inválida da API.");
+      }
+
       const maxMarketQuantity = Math.max(
-        // @ts-ignore
         ...response.map((item) => item.buyordervolume ?? item.offervolume ?? 0),
       );
 
-      // @ts-ignore
       inventoryItems = response.map((item) => {
         const chance = calculator.calculateAppreciationChance({
           currentPrice: item.pricereal ?? item.priceavg,
           marketQuantity: item.buyordervolume ?? item.offervolume,
           maxCategoryPrice: item.pricemax ?? 1,
           maxMarketQuantity,
-          // @ts-ignore
           rarity: RARITY_ADAPTER[item.rarity],
           specialAttributes: [
             item.isstattrak ? 1 : 0,
@@ -49,18 +54,31 @@
   };
 </script>
 
-<section class="section-container">
-  <header class="section-content">
-    <article class="container">
-      <h2 class="title">Busca de Inventário</h2>
+<section class="py-12 lg:py-16 px-4 w-full">
+  <header
+    class="max-w-2xl lg:max-w-6xl w-full mx-auto flex flex-col items-center gap-12 lg:gap-16"
+  >
+    <article class="flex gap-2 items-center flex-col">
+      <h1 class="text-4xl text-center font-semibold">Busca de Inventário</h1>
+      <p class="text-neutral-600 text-center">
+        Digite o ID da steam abaixo para saber se sua skin possui chances de
+        valorizar <br /> nos próximos meses
+      </p>
     </article>
-    <div class="container">
+    <div class="flex flex-col gap-6 items-center max-w-xl w-full mx-auto">
       <input
+        class="border w-full bg-white shadow focus:outline-0 outline-0 border-neutral-300 focus:border-indigo-500 transition-all duration-300 ease-in-out rounded-xl px-6 py-3"
         type="text"
         placeholder="Digite o Steam ID"
         bind:value={userId}
         on:keypress={(e) => e.key === "Enter" && fetchInvetoryItems()}
       />
+      <a
+        class="text-sm text-indigo-500 hover:brightness-105 -mt-3 transition-all duration-300"
+        target="_blank"
+        href="https://www.steamidfinder.com/"
+        >Não sabe seu ID da steam? clique aqui!</a
+      >
       <button on:click={fetchInvetoryItems}
         >Buscar Inventário
         <div class="icon">
@@ -79,60 +97,32 @@
         </div>
       </button>
     </div>
+    <div class="">
+      {#if isLoading}
+        <p class="text-center mt-8">Carregando inventário...</p>
+      {:else if inventoryItems && inventoryItems.length > 0}
+        <section
+          class="grid grid-cols-1 h-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch gap-6 mt-12 max-w-6xl mx-auto px-4"
+        >
+          {#each inventoryItems as item, index (index)}
+            <SkinCard skin={item} />
+          {/each}
+        </section>
+      {:else if inventoryItems !== null}
+        <p class="text-center mt-8 text-neutral-500">Nenhum item encontrado.</p>
+      {/if}
+    </div>
   </header>
 </section>
 
 <style>
-  .section-container {
-    padding: 64px 16px;
-    width: 100%;
-  }
-
-  .section-content {
-    max-width: 1280px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-  }
-
-  .container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .title {
-    font-size: 48px;
-    color: white;
-    font-weight: 600;
-  }
-
-  input {
-    border: 1px solid #27272a;
-    border-radius: 20px;
-    padding: 12px 20px;
-    color: white;
-    font-size: 16px;
-    max-width: 560px;
-    width: 100%;
-  }
-
-  input:focus {
-    outline: none;
-  }
-
   button {
-    margin-top: 24px;
-    background: #a370f0;
+    margin-top: 12px;
+    background: #6366f1;
     color: white;
     font-family: inherit;
     padding: 0.35em;
-    padding-left: 1.2em;
+    padding-left: 2em;
     font-size: 17px;
     font-weight: 500;
     border-radius: 0.9em;
@@ -140,11 +130,11 @@
     letter-spacing: 0.05em;
     display: flex;
     align-items: center;
-    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    box-shadow: inset 0 0 1.6em -0.6em #6366f1;
     overflow: hidden;
     position: relative;
     height: 2.8em;
-    padding-right: 3.3em;
+    padding-right: 4.2em;
     cursor: pointer;
   }
 

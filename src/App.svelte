@@ -1,7 +1,7 @@
 <script lang="ts">
   import "./app.css";
   import Router from "svelte-spa-router";
-  import Navbar from "./components/Navbar.svelte";
+  import Navbar from "./components/Navbar/Navbar.svelte";
   import Home from "./pages/Homepage.svelte";
   import Search from "./pages/Search.svelte";
   
@@ -21,10 +21,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background: #08090a;
+    background: #f5f5f5;
   }
 
   .background {
-    background: #08090a;
+    background: #f5f5f5;
   }
 </style>
