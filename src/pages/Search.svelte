@@ -63,6 +63,7 @@
       isLoading = false;
     }
   };
+  
 </script>
 
 <section class="py-12 lg:py-16 px-4 w-full">

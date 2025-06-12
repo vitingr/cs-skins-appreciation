@@ -1,5 +1,12 @@
 <script lang="ts">
   export let skin;
+
+  function formatCurrency(value: number) {
+    return value.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  }
 </script>
 
 <div
@@ -14,8 +21,11 @@
       class="w-full h-full object-contain"
     />
   </figure>
-  <article class="rounded-b-md h-full flex flex-col px-4 py-6 bg-white">
-    <h2 class="text-xl font-semibold">{skin?.marketname || ""}</h2>
+  <article class="rounded-b-md h-full flex flex-col p-4 bg-white">
+    <span class="text-neutral-500 text-xl lg:text-2xl font-semibold"
+      >{formatCurrency(skin?.pricelatest || 0)}</span
+    >
+    <h2 class="mt-2 text-xl font-semibold">{skin?.marketname || ""}</h2>
     <p class="text-neutral-500 h-full">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis sit
       tenetur doloribus iste eius alias odio provident itaque autem at.
@@ -26,7 +36,7 @@
       >
         Baixas chances de valorização
       </p>
-    {:else if skin?.appreciationChance >= 20 || skin?.itemgroup === 'container'}
+    {:else if skin?.appreciationChance >= 20 || skin?.itemgroup === "container"}
       <p
         class="mt-6 text-sm lg:text-base text-center justify-center flex items-center rounded-sm py-1.5 px-4 bg-green-100"
       >
