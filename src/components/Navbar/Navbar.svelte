@@ -4,7 +4,7 @@
 
 <nav class="navbar-container border border-white/5 backdrop-blur-lg">
   <div class="navbar-items">
-    <a class="logo flex gap-3 items-center justify-center" href="/"
+    <a class="logo flex gap-3 items-center lg:justify-center" href="/"
       ><img
         src="https://cdn-icons-png.flaticon.com/512/187/187902.png"
         alt="logo"
@@ -17,7 +17,7 @@
       >
     </a>
 
-    <ul class="navbar-links">
+    <ul class="navbar-links lg:flex hidden">
       {#each NAVBAR_LINKS as link}
         <li
           class="cursor-pointer w-full text-[13px] text-neutral-600 font-medium px-3.5 py-1 rounded-sm items-center justify-center flex"
@@ -73,7 +73,6 @@
     width: 100%;
     justify-content: center;
     align-self: center;
-    display: flex;
     gap: 12px;
   }
 

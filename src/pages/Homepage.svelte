@@ -170,7 +170,7 @@
           /></g
         ></svg
       >
-      <span class="text text-8xl text-neutral-900 font-bold text-center">
+      <span class="text lg:text-4xl lg:block hidden xl:text-8xl text-neutral-900 font-bold text-center">
         Como Funciona?
       </span>
       >
@@ -178,7 +178,7 @@
   </section>
   <section
     style="animation-delay:0.5s"
-    class="pre-fade-up mx-auto max-w-2xl lg:max-w-7xl w-full hidden mt-24 grid-cols-3 gap-10 xl:grid animate-fade-up"
+    class="pre-fade-up mx-auto max-w-2xl lg:max-w-7xl w-full hidden mt-[600px] lg:mt-24 grid-cols-3 gap-10 xl:grid animate-fade-up"
   >
     <div
       style="animation-delay:1.2s"
@@ -251,7 +251,7 @@
       </div>
     </div>
   </section>
-  <section class="bg-white mt-20 px-4 pt-12 lg:pt-20">
+  <section class="bg-white mt-80 lg:mt-20 px-4 pt-12 lg:pt-20">
     <div
       class="mx-auto flex w-full max-w-2xl flex-col gap-12 lg:max-w-7xl lg:gap-8"
     >
@@ -710,7 +710,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    display: block;
     width: 83%;
     height: 100%;
     margin: auto;
