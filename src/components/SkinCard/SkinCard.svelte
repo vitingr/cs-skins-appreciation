@@ -20,7 +20,13 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis sit
       tenetur doloribus iste eius alias odio provident itaque autem at.
     </p>
-    {#if skin?.appreciationChance >= 20}
+    {#if skin?.itemgroup === "graffiti"}
+      <p
+        class="mt-6 text-sm lg:text-base text-center justify-center flex items-center rounded-sm py-1.5 px-4 bg-red-100"
+      >
+        Baixas chances de valorização
+      </p>
+    {:else if skin?.appreciationChance >= 20 || skin?.itemgroup === 'container'}
       <p
         class="mt-6 text-sm lg:text-base text-center justify-center flex items-center rounded-sm py-1.5 px-4 bg-green-100"
       >

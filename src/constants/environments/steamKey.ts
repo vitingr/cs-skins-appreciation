@@ -1,0 +1,1 @@
+export const steamKey = import.meta.env.VITE_STEAM_KEY;
