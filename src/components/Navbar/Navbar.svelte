@@ -1,11 +1,21 @@
 <script lang="ts">
   import { NAVBAR_LINKS } from "./data";
-
 </script>
 
 <nav class="navbar-container border border-white/5 backdrop-blur-lg">
   <div class="navbar-items">
-    <a class="logo" href="/">LOGO</a>
+    <a class="logo flex gap-3 items-center justify-center" href="/"
+      ><img
+        src="https://cdn-icons-png.flaticon.com/512/187/187902.png"
+        alt="logo"
+        class="w-8 h-7"
+      />
+
+      <span
+        class="bg-gradient-to-r from-[#0090F7] via-[#BA62FC] via-[#F2416B] via-[#ba62fb] to-[#894aa8] bg-clip-text text-base font-bold text-transparent"
+        >CS Preview</span
+      >
+    </a>
 
     <ul class="navbar-links">
       {#each NAVBAR_LINKS as link}
@@ -31,7 +41,7 @@
     display: flex;
     max-height: 42px;
     width: auto;
-    background: linear-gradient(90deg,#a5aaae5d,#a5aaae1a 50%,#a5aaae14);
+    background: linear-gradient(90deg, #a5aaae5d, #a5aaae1a 50%, #a5aaae14);
     --globalnav-backdrop-filter: saturate(180%) blur(20px);
     background-clip: padding-box;
     padding-left: 1.5rem;

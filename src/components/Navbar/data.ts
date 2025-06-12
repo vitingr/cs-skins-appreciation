@@ -1,8 +1,8 @@
 export const NAVBAR_LINKS = [
-  { name: "Product", href: "/product" },
-  { name: "Resources", href: "/resources" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Customers", href: "/customers" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+  { name: "Início", href: "/" },
+  { name: "Buscar", href: "/#/search" },
+  { name: "Planos", href: "/#/search" },
+  { name: "Informações", href: "/" },
+  { name: "Blog", href: "/" },
+  { name: "Contato", href: "/" },
 ] as const;

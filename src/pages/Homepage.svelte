@@ -170,9 +170,9 @@
           /></g
         ></svg
       >
-      <h1 class="text text-8xl text-neutral-900 font-bold text-center">
+      <span class="text text-8xl text-neutral-900 font-bold text-center">
         Como Funciona?
-      </h1>
+      </span>
       >
     </div>
   </section>

@@ -6,10 +6,19 @@
 
   import { api } from "../constants/instances/api";
   import { calculator } from "../constants/instances/calculator";
+  import { OPTIONS_DATA } from "../constants/pricing";
+  // import { MOCK } from "../constants/mock";
 
   let userId = "";
   let inventoryItems = null;
   let isLoading = false;
+
+  function formatCurrency(value) {
+    return value.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  }
 
   const fetchInvetoryItems = async () => {
     if (!userId) return;
@@ -17,6 +26,8 @@
     inventoryItems = null;
 
     try {
+      // const response = MOCK
+
       const response = await api.getUserInventoryItems({ userId });
 
       if (!Array.isArray(response)) {
@@ -79,7 +90,7 @@
         href="https://www.steamidfinder.com/"
         >Não sabe seu ID da steam? clique aqui!</a
       >
-      <button on:click={fetchInvetoryItems}
+      <button class="button" on:click={fetchInvetoryItems}
         >Buscar Inventário
         <div class="icon">
           <svg
@@ -113,6 +124,140 @@
       {/if}
 
       {#if inventoryItems === null || inventoryItems?.length <= 0}
+        <section class="px-4 w-full pt-12 pb-4 lg:pb-0 lg:pt-20">
+          <div
+            class="mx-auto flex w-full max-w-2xl flex-col items-center gap-8 lg:max-w-7xl lg:gap-16"
+          >
+            <article class="flex flex-col items-center gap-2">
+              <h2
+                class="text-left text-2xl font-semibold lg:text-center lg:text-3xl"
+              >
+                Escolha o plano ideal para turbinar suas skins
+              </h2>
+              <p
+                class="text-left text-sm text-neutral-600 lg:text-center lg:text-base"
+              >
+                Tenha acesso a análises precisas, previsões de valorização e
+                ferramentas exclusivas que ajudam você <br class="lg:block hidden" /> a tomar decisões mais
+                inteligentes no mercado de skins.
+              </p>
+            </article>
+            <ul
+              class="mx-auto flex h-full w-full flex-col gap-6 lg:max-w-7xl lg:flex-row lg:items-stretch lg:justify-between lg:gap-12 lg:self-stretch"
+            >
+              <li
+                class="rouded-sm flex w-full flex-col gap-4 bg-white lg:gap-6"
+              >
+                <hr
+                  class={`h-4 w-full rounded-t-sm bg-gradient-to-r from-purple-600 to-purple-300 border-0`}
+                />
+                <article class="flex flex-col items-center gap-2 px-4">
+                  <span
+                    class="w-fit rounded-full bg-purple-50 px-2 py-1 text-center text-xs font-medium uppercase text-purple-500"
+                  >
+                    Plano Grátis
+                  </span>
+                  <p class="text-center text-2xl lg:text-3xl">
+                    {formatCurrency(0)}/mês
+                  </p>
+                  <p class="text-center text-xs text-neutral-600 lg:text-sm">
+                    Plano Gratuíto
+                  </p>
+                </article>
+                <ul
+                  class="ml-4 flex list-disc flex-col gap-2 px-4 pb-4 lg:pb-6"
+                >
+                  {#each OPTIONS_DATA.free as option, index}
+                    <li class="text-sm">
+                      {option}
+                    </li>
+                  {/each}
+                </ul>
+                <div class="flex h-full items-end px-4 pb-4 lg:pb-6">
+                  <button
+                    class="min-w-full cursor-pointer md:text-sm bg-neutral-800 px-6 py-2.5 hover:brightness-110 transition-all duration-300 rounded-xl flex items-center justify-center text-white"
+                    variant="primaryOutline"
+                  >
+                    Assinar agora
+                  </button>
+                </div>
+              </li>
+              <li
+                class="rouded-sm flex w-full flex-col gap-4 bg-white lg:gap-6"
+              >
+                <hr
+                  class={`h-4 w-full rounded-t-sm bg-gradient-to-r from-amber-600 to-amber-400 border-0`}
+                />
+                <article class="flex flex-col items-center gap-2 px-4">
+                  <span
+                    class="w-fit rounded-full bg-amber-50 px-2 py-1 text-center text-xs font-medium uppercase text-yellow-700"
+                  >
+                    Plano Básico
+                  </span>
+                  <p class="text-center text-2xl lg:text-3xl">
+                    {formatCurrency(19.99)}/mês
+                  </p>
+                  <p class="text-center text-xs text-neutral-600 lg:text-sm">
+                    Plano Gratuíto
+                  </p>
+                </article>
+                <ul class="ml-4 flex list-disc flex-col gap-2 px-4">
+                  {#each OPTIONS_DATA.basic as option, index}
+                    <li class="text-sm">
+                      {option}
+                    </li>
+                  {/each}
+                </ul>
+                <div class="flex h-full items-end px-4 pb-4 lg:pb-6">
+                  <button
+                    class="min-w-full cursor-pointer md:text-sm bg-neutral-800 px-6 py-2.5 hover:brightness-110 transition-all duration-300 rounded-xl flex items-center justify-center text-white"
+                    variant="primaryOutline"
+                  >
+                    Assinar agora
+                  </button>
+                </div>
+              </li>
+              <li
+                class="rouded-sm flex w-full flex-col gap-4 bg-white lg:gap-6"
+              >
+                <hr
+                  class={`h-8 w-full rounded-t-sm bg-gradient-to-r from-neutral-800 to-neutral-500 border-0`}
+                />
+                <article class="flex flex-col items-center gap-2 px-4">
+                  <span
+                    class="w-fit rounded-full bg-neutral-50 px-2 py-1 text-center text-xs font-medium uppercase text-neutral-700"
+                  >
+                    Plano Premium
+                  </span>
+                  <p class="text-center text-2xl lg:text-3xl">
+                    {formatCurrency(39.99)}/mês
+                  </p>
+                  <p class="text-center text-xs text-neutral-600 lg:text-sm">
+                    Plano Premium
+                  </p>
+                </article>
+                <ul class="ml-4 flex list-disc flex-col gap-2 px-4">
+                  {#each OPTIONS_DATA.premium as option, index}
+                    <li class="text-sm">
+                      {option}
+                    </li>
+                  {/each}
+                </ul>
+                <div class="flex h-full items-end px-4 pb-4 lg:pb-6">
+                  <button
+                    class="min-w-full cursor-pointer md:text-sm bg-neutral-800 px-6 py-2.5 hover:brightness-110 transition-all duration-300 rounded-xl flex items-center justify-center text-white"
+                    variant="primaryOutline"
+                  >
+                    Assinar agora
+                  </button>
+                </div>
+              </li>
+            </ul>
+            <p class="mx-auto -mt-4 text-xs text-neutral-500">
+              * Valores sujeitos a alteração de preço
+            </p>
+          </div>
+        </section>
         <section class="bg-neutral-100 px-4 py-12 lg:py-20">
           <div
             class="mx-auto flex w-full max-w-2xl flex-col gap-12 lg:max-w-7xl lg:gap-8"
@@ -265,7 +410,7 @@
 </section>
 
 <style>
-  button {
+  .button {
     margin-top: 12px;
     background: #6366f1;
     color: white;
@@ -287,7 +432,7 @@
     cursor: pointer;
   }
 
-  button .icon {
+  .button .icon {
     background: white;
     margin-left: 1em;
     position: absolute;
@@ -302,21 +447,21 @@
     transition: all 0.3s;
   }
 
-  button:hover .icon {
+  .button:hover .icon {
     width: calc(100% - 0.6em);
   }
 
-  button .icon svg {
+  .button .icon svg {
     width: 1.1em;
     transition: transform 0.3s;
     color: #7b52b9;
   }
 
-  button:hover .icon svg {
+  .button:hover .icon svg {
     transform: translateX(0.1em);
   }
 
-  button:active .icon {
+  .button:active .icon {
     transform: scale(0.95);
   }
 </style>
