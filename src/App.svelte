@@ -4,6 +4,7 @@
   import Navbar from "./components/Navbar/Navbar.svelte";
   import Home from "./pages/Homepage.svelte";
   import Search from "./pages/Search.svelte";
+    import Footer from "./components/Footer/Footer.svelte";
   
   const routes = { "/": Home, "/search": Search };
 </script>
@@ -13,6 +14,8 @@
 <main class="background">
   <Router {routes} useHash={true} />
 </main>
+
+<Footer />
 
 <style>
   :global(html) {

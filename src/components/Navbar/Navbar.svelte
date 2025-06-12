@@ -3,14 +3,14 @@
 
 </script>
 
-<nav class="navbar-container shadow">
+<nav class="navbar-container border border-white/5 backdrop-blur-lg">
   <div class="navbar-items">
     <a class="logo" href="/">LOGO</a>
 
     <ul class="navbar-links">
       {#each NAVBAR_LINKS as link}
         <li
-          class="cursor-pointer w-full text-sm text-neutral-600 px-4 py-3 rounded-sm items-center justify-center flex"
+          class="cursor-pointer w-full text-[13px] text-neutral-600 font-medium px-3.5 py-1 rounded-sm items-center justify-center flex"
         >
           <a href={link.href}>{link.name}</a>
         </li>
@@ -18,26 +18,26 @@
     </ul>
 
     <div class="actions">
-      <a href="/search" class="test-button">Teste agora</a>
+      <a href="/search" class="test-button">Ver Inventário</a>
     </div>
   </div>
 </nav>
 
 <style>
   .navbar-container {
-    box-shadow: 1px;
     position: fixed;
     inset: 0;
     z-index: 99999;
     display: flex;
-    max-height: 44px;
+    max-height: 42px;
     width: auto;
-    background-color: #fff;
+    background: linear-gradient(90deg,#a5aaae5d,#a5aaae1a 50%,#a5aaae14);
+    --globalnav-backdrop-filter: saturate(180%) blur(20px);
     background-clip: padding-box;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.65rem;
+    padding-bottom: 1.65rem;
     backdrop-filter: blur(4px);
   }
 
@@ -75,37 +75,60 @@
   }
 
   .test-button {
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: 510;
-    justify-content: center;
-    align-items: center;
     display: flex;
-    border-radius: 8px;
-    color: #fff;
-    background: #6366f1;
-    cursor: pointer;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    transition-duration: 0.2s;
-    transition-property: all;
+    position: relative;
+    border: none;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    color: #fff;
+    width: 8em;
+    height: 1.75em;
+    line-height: 2em;
+    text-align: center;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 300%;
+    border-radius: 30px;
+    z-index: 1;
   }
 
   .test-button:hover {
-    filter: brightness(1.05);
+    animation: ani 8s linear infinite;
+    border: none;
   }
 
-  /* @media (min-width: 1024px) {
-    .navbar-container {
-      display: flex;
-      padding-left: 1rem;
-      padding-right: 1rem;
+  @keyframes ani {
+    0% {
+      background-position: 0%;
     }
-  } */
 
-  /* @media (min-width: 1280px) {
-    .navbar-container {
-      padding-left: 0;
-      padding-right: 0;
+    100% {
+      background-position: 400%;
     }
-  } */
+  }
+
+  .test-button:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 35px;
+    transition: 1s;
+  }
+
+  .test-button:hover::before {
+    filter: blur(20px);
+  }
+
+  .test-button:active {
+    background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  }
 </style>
