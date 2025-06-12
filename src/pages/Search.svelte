@@ -111,6 +111,155 @@
       {:else if inventoryItems !== null}
         <p class="text-center mt-8 text-neutral-500">Nenhum item encontrado.</p>
       {/if}
+
+      {#if inventoryItems === null || inventoryItems?.length <= 0}
+        <section class="bg-neutral-100 px-4 py-12 lg:py-20">
+          <div
+            class="mx-auto flex w-full max-w-2xl flex-col gap-12 lg:max-w-7xl lg:gap-8"
+          >
+            <article class="flex w-full items-end justify-between gap-4">
+              <h2 class="w-full flex-1 text-2xl font-semibold">
+                Skins em Alta
+              </h2>
+              <p class="w-auto text-base">Ver todas</p>
+            </article>
+            <div
+              class="grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+            >
+              <div
+                class="flex w-full cursor-pointer items-center gap-4 overflow-hidden lg:gap-8"
+              >
+                <figure
+                  class="group p-3 bg-white flex items-center justify-center h-[125px] w-[125px] overflow-hidden rounded-xl sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                >
+                  <img
+                    alt="M4A4"
+                    class="h-[125px] w-[125px] rounded-xl object-contain transition-all duration-300 group-hover:scale-[1.01] sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                    src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwW08izmZWAluLLP7LWnn8f68R33L-S8I_xjFCx-0VvNmvwco6Xc1VqMA7Y_gK5wL_s05HovZTOm2wj5HfUY71KXQ/330x192?allow_animated=1"
+                  />
+                </figure>
+                <article class="flex w-full flex-1 flex-col gap-3">
+                  <h3 class="text-lg font-semibold lg:text-xl">
+                    M4A4 | Temukau
+                  </h3>
+                  <div class="flex w-full items-center gap-2">
+                    <p class="text-sm font-medium">Rifle</p>
+                    <p class="text-sm text-neutral-500">12 jun. 2025</p>
+                  </div>
+                </article>
+              </div>
+              <div
+                class="flex w-full cursor-pointer items-center gap-4 overflow-hidden lg:gap-8"
+              >
+                <figure
+                  class="group p-3 bg-white flex items-center justify-center h-[125px] w-[125px] overflow-hidden rounded-xl sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                >
+                  <img
+                    alt="M4a1s"
+                    class="h-[125px] w-[125px] rounded-xl object-contain transition-all duration-300 group-hover:scale-[1.01] sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                    src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO1gb-Gw_alIITBhGJf_NZlmOzA-LP5gVO8v11qa2n6dtOcIQVoMFHUqwC9wei7jcO5vZ3AzSQ1vCMls3fayxKyhh1McKUx0sfzkVMr/330x192?allow_animated=1"
+                  />
+                </figure>
+                <article class="flex w-full flex-1 flex-col gap-3">
+                  <h3 class="text-lg font-semibold lg:text-xl">
+                    M4A1-S | Cadeia de Caracteres
+                  </h3>
+                  <div class="flex w-full items-center gap-2">
+                    <p class="text-sm font-medium">Rifle</p>
+                    <p class="text-sm text-neutral-500">12 jun. 2025</p>
+                  </div>
+                </article>
+              </div>
+              <div
+                class="flex w-full cursor-pointer items-center gap-4 overflow-hidden lg:gap-8"
+              >
+                <figure
+                  class="group p-3 bg-white flex items-center justify-center h-[125px] w-[125px] overflow-hidden rounded-xl sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                >
+                  <img
+                    alt="Ak-47"
+                    class="h-[125px] w-[125px] rounded-xl object-contain transition-all duration-300 group-hover:scale-[1.01] sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                    src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJegJL_9C3moS0kfv7IbrdqWdY781lxOrH9tyl2APj_RFkYm6ncISWdw42ZwvX8wfoku3s15Tu6czKySZgu3U8pSGKi-NSbdE/330x192?allow_animated=1"
+                  />
+                </figure>
+                <article class="flex w-full flex-1 flex-col gap-3">
+                  <h3 class="text-lg font-semibold lg:text-xl">
+                    AK-47 | Lótus Selvagem
+                  </h3>
+                  <div class="flex w-full items-center gap-2">
+                    <p class="text-sm font-medium">Rifle</p>
+                    <p class="text-sm text-neutral-500">12 jun. 2025</p>
+                  </div>
+                </article>
+              </div>
+              <div
+                class="flex w-full cursor-pointer items-center gap-4 overflow-hidden lg:gap-8"
+              >
+                <figure
+                  class="group p-3 bg-white flex items-center justify-center h-[125px] w-[125px] overflow-hidden rounded-xl sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                >
+                  <img
+                    alt="M4A4"
+                    class="h-[125px] w-[125px] rounded-xl object-contain transition-all duration-300 group-hover:scale-[1.01] sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                    src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FABz7PLfYQJF-dKxmomZqPv9NLPF2DoAvJ0l2euWrdii3Fblr0toMGGnIYOTIFVtM1_U_Va7xuq7jJfoucnXiSw00w0Iywk/330x192?allow_animated=1"
+                  />
+                </figure>
+                <article class="flex w-full flex-1 flex-col gap-3">
+                  <h3 class="text-lg font-semibold lg:text-xl">
+                    AWP | Gungnir
+                  </h3>
+                  <div class="flex w-full items-center gap-2">
+                    <p class="text-sm font-medium">Sniper</p>
+                    <p class="text-sm text-neutral-500">10 jun. 2025</p>
+                  </div>
+                </article>
+              </div>
+              <div
+                class="flex w-full cursor-pointer items-center gap-4 overflow-hidden lg:gap-8"
+              >
+                <figure
+                  class="group p-3 bg-white flex items-center justify-center h-[125px] w-[125px] overflow-hidden rounded-xl sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                >
+                  <img
+                    alt="M4A4"
+                    class="h-[125px] w-[125px] rounded-xl object-contain transition-all duration-300 group-hover:scale-[1.01] sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                    src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLP7LWnn8f6pIl2-yYp9SnjA23-BBuNW-iLI-XJgFsZQyG_VW2lOq918e8uszLn2wj5HeAvkVdtQ/330x192?allow_animated=1"
+                  />
+                </figure>
+                <article class="flex w-full flex-1 flex-col gap-3">
+                  <h3 class="text-lg font-semibold lg:text-xl">M4A4 | Uivo</h3>
+                  <div class="flex w-full items-center gap-2">
+                    <p class="text-sm font-medium">Rifle</p>
+                    <p class="text-sm text-neutral-500">12 jun. 2025</p>
+                  </div>
+                </article>
+              </div>
+              <div
+                class="flex w-full cursor-pointer items-center gap-4 overflow-hidden lg:gap-8"
+              >
+                <figure
+                  class="group p-3 bg-white flex items-center justify-center h-[125px] w-[125px] overflow-hidden rounded-xl sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                >
+                  <img
+                    alt="M4A4"
+                    class="h-[125px] w-[125px] rounded-xl object-contain transition-all duration-300 group-hover:scale-[1.01] sm:h-[150px] sm:w-[150px] lg:h-[170px] lg:w-[170px]"
+                    src="https://community.fastly.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0vL3dzxG6eO6nYeDg7n1a-6GkDoC7pMp3rGYpNqiiQ23-UM5ZT-hcIeQJgZsMFvR_lTox7i-m9bi6-pjfulG/330x192?allow_animated=1"
+                  />
+                </figure>
+                <article class="flex w-full flex-1 flex-col gap-3">
+                  <h3 class="text-lg font-semibold lg:text-xl">
+                    Glock-18 | Degradê
+                  </h3>
+                  <div class="flex w-full items-center gap-2">
+                    <p class="text-sm font-medium">Rifle</p>
+                    <p class="text-sm text-neutral-500">12 jun. 2025</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      {:else}{/if}
     </div>
   </header>
 </section>

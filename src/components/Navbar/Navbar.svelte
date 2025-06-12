@@ -18,7 +18,7 @@
     </ul>
 
     <div class="actions">
-      <a href="/search" class="test-button">Ver Inventário</a>
+      <a href="/#/search" class="test-button">Ver Inventário</a>
     </div>
   </div>
 </nav>

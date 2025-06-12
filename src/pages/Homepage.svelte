@@ -17,7 +17,7 @@
           têm potencial de <br /> valorização nos próximos meses.
         </p>
       </article>
-      <button class="px-4 mt-8"> Quero Testar agora </button>
+      <a href="/#/search" class="button flex items-center justify-center px-4 mt-8"> Quero Testar agora </a>
     </div>
   </section>
   <section class="group lg:min-h-[190px]" id="page-wrap">
@@ -768,7 +768,7 @@
     margin: 0 0.5em 0 0;
   }
 
-  button {
+  .button {
     text-decoration: none;
     position: relative;
     border: none;
@@ -786,7 +786,7 @@
     z-index: 1;
   }
 
-  button:hover {
+  .button:hover {
     animation: ani 8s linear infinite;
     border: none;
   }
@@ -801,7 +801,7 @@
     }
   }
 
-  button:before {
+  .button:before {
     content: "";
     position: absolute;
     top: -5px;
@@ -815,11 +815,11 @@
     transition: 1s;
   }
 
-  button:hover::before {
+  .button:hover::before {
     filter: blur(20px);
   }
 
-  button:active {
+  .button:active {
     background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
   }
 </style>
